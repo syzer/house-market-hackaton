@@ -23,3 +23,5 @@ angularui:angular-google-maps
 accounts-ui
 accounts-password
 urigo:angular-blaze-template
+angular:angular-touch
+angularui:angular-ui-bootstrap
