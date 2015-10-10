@@ -22,7 +22,16 @@ angular.module("tinder").config(['$urlRouterProvider', '$stateProvider', '$locat
             .state('houses', {
                 url: '/houses',
                 templateUrl: 'client/features/houses/views/houses.ng.html',
-                controller: 'features.houses.controllers.houses',
+                controller: 'features.houses.controllers.houses'
+            })
+            .state('houses.list', {
+                url: '/list',
+                controller: 'features.houses.controllers.houses-list',
+                views: {
+                    "@": {
+                        templateUrl: 'client/features/houses/views/houses-list.ng.html'
+                    }
+                },
                 resolve: {
                     'subscribe': [
                         '$meteor', function($meteor) {
@@ -31,23 +40,6 @@ angular.module("tinder").config(['$urlRouterProvider', '$stateProvider', '$locat
                     ]
                 }
             })
-            .state('houses.list', {
-                url: '/list',
-                templateUrl: 'client/features/houses/views/houses-list.ng.html',
-                controller: 'features.houses.controllers.houses-list'
-            })
-            //.state('groups', {
-            //    url: '/groups',
-            //    templateUrl: 'client/features/groups/views/groups.ng.html',
-            //    controller: 'features.groups.controllers.groups',
-            //    resolve: {
-            //        'subscribe': [
-            //            '$meteor', function($meteor) {
-            //                return $meteor.subscribe('groups');
-            //            }
-            //        ]
-            //    }
-            //})
             .state('map', {
                 url: '/map',
                 templateUrl: 'client/app/map.ng.html',
@@ -63,12 +55,8 @@ angular.module("tinder").config(['$urlRouterProvider', '$stateProvider', '$locat
 
     }]);
 
-function onReady() {
-    angular.bootstrap(document, ['tinder']);
-}
-
-if (Meteor.isCordova) {
-    angular.element(document).on('deviceready', onReady);
-} else {
-    angular.element(document).ready(onReady);
-}
+//if (Meteor.isCordova) {
+//    angular.element(document).on('deviceready', onReady);
+//} else {
+//    angular.element(document).ready(onReady);
+//}

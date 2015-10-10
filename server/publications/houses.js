@@ -1,3 +1,3 @@
 Meteor.publish("houses", function () {
-    return Collections.Houses.find({});
+    return Collections.Houses.find();
 });
