@@ -1,6 +1,6 @@
 (function(){
 
-    angular.module('tinder').controller('features.houses.controllers.list', Ctrl);
+    angular.module('tinder').controller('features.houses.controllers.houses', Ctrl);
 
     Ctrl.$inject = [
         '$scope',

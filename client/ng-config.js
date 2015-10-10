@@ -8,7 +8,7 @@ angular.module("tinder").run(["$rootScope", "$state", function($rootScope, $stat
      */
     $rootScope.$on("$stateChangeError", function(event, toState, toParams, fromState, fromParams, error) {
         if (error === "AUTH_REQUIRED") {
-            $state.go('houses');
+            $state.go('houses.list');
         }
     });
 }]);
@@ -21,9 +21,20 @@ angular.module("tinder").config(['$urlRouterProvider', '$stateProvider', '$locat
         $stateProvider
             .state('houses', {
                 url: '/houses',
-                //templateUrl: 'client/parties/views/parties-list.ng.html',
-                templateUrl: 'client/features/houses/views/list.ng.html',
-                controller: 'features.houses.controllers.list'
+                templateUrl: 'client/features/houses/views/houses.ng.html',
+                controller: 'features.houses.controllers.houses',
+                resolve: {
+                    'subscribe': [
+                        '$meteor', function($meteor) {
+                            return $meteor.subscribe('houses');
+                        }
+                    ]
+                }
+            })
+            .state('houses.list', {
+                url: '/houses/list',
+                templateUrl: 'client/features/houses/views/houses-list.ng.html',
+                controller: 'features.houses.controllers.houses-list'
             })
             //.state('groups', {
             //    url: '/groups',
