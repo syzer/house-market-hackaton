@@ -22,9 +22,21 @@ angular.module("tinder").config(['$urlRouterProvider', '$stateProvider', '$locat
             .state('houses', {
                 url: '/houses',
                 //templateUrl: 'client/parties/views/parties-list.ng.html',
-                templateUrl: 'client/app/houses-list.ng.html',
-                controller: 'HousesCtrl'
+                templateUrl: 'client/features/houses/views/list.ng.html',
+                controller: 'features.houses.controllers.houses'
             })
+            //.state('groups', {
+            //    url: '/groups',
+            //    templateUrl: 'client/features/groups/views/groups.ng.html',
+            //    controller: 'features.groups.controllers.groups',
+            //    resolve: {
+            //        'subscribe': [
+            //            '$meteor', function($meteor) {
+            //                return $meteor.subscribe('groups');
+            //            }
+            //        ]
+            //    }
+            //})
             .state('map', {
                 url: '/map',
                 templateUrl: 'client/app/map.ng.html',

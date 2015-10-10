@@ -18,7 +18,6 @@ ecmascript              # Enable ECMAScript2015+ syntax in app code
 
 angular
 urigo:angular-ui-router
-angularui:angular-google-maps
 
 accounts-ui
 accounts-password
