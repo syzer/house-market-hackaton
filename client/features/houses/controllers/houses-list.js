@@ -13,8 +13,7 @@
         $rootScope,
         $state
     ) {
-        console.log('house list');
-        //$scope.houses = $scope.$meteorCollection(Collections.Houses);
+        $scope.houses = $scope.$meteorCollection(Collections.Houses);
 
     }
 

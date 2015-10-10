@@ -13,7 +13,6 @@
         $rootScope,
         $state
     ) {
-
     }
 
 })();
