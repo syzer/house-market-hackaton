@@ -23,3 +23,17 @@ angularui:angular-google-maps
 accounts-ui
 accounts-password
 urigo:angular-blaze-template
+
+angular:angular-touch
+angularui:angular-google-maps
+twbs:bootstrap
+angularui:angular-ui-bootstrap
+fortawesome:fontawesome
+udondan:googlefonts
+vishalm:angular-toastr
+
+http
+meteorhacks:npm
+froatsnook:request
+npm-container
+
