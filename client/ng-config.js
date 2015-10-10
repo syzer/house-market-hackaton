@@ -32,7 +32,7 @@ angular.module("tinder").config(['$urlRouterProvider', '$stateProvider', '$locat
                 }
             })
             .state('houses.list', {
-                url: '/houses/list',
+                url: '/list',
                 templateUrl: 'client/features/houses/views/houses-list.ng.html',
                 controller: 'features.houses.controllers.houses-list'
             })
