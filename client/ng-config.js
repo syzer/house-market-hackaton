@@ -1,3 +1,7 @@
+Accounts.ui.config({
+    passwordSignupFields: "USERNAME_ONLY"
+});
+
 angular.module("tinder").run(["$rootScope", "$state", function($rootScope, $state) {
     /**
      * Redirect to main page if failed to go to selected group page (f.ex. because not logged in)
@@ -15,23 +19,33 @@ angular.module("tinder").config(['$urlRouterProvider', '$stateProvider', '$locat
         $locationProvider.html5Mode(true);
 
         $stateProvider
-            .state('index', {
-                url: '/',
-                templateUrl: 'client/features/index/views/index.ng.html',
-                controller: 'features.index.controllers.index'
+            .state('houses', {
+                url: '/houses',
+                //templateUrl: 'client/parties/views/parties-list.ng.html',
+                templateUrl: 'client/app/houses-list.ng.html',
+                controller: 'HousesCtrl'
             })
-            .state('houses.list', {
-                url: '/houses/list',
-                templateUrl: 'client/features/houses/views/list.ng.html',
-                controller: 'features.houses.controllers.list',
+            .state('map', {
+                url: '/map',
+                templateUrl: 'client/app/map.ng.html',
+                controller: 'MapCtrl',
                 resolve: {
-                    'subscribe': [
-                        '$meteor', function($meteor) {
-                            return $meteor.subscribe('houses');
-                        }
-                    ]
+                    "currentUser": ["$meteor", function ($meteor) {
+                        return $meteor.requireUser();
+                    }]
                 }
             });
 
-        $urlRouterProvider.otherwise("/houses/list");
+        $urlRouterProvider.otherwise("/map");
+
     }]);
+
+function onReady() {
+    angular.bootstrap(document, ['housesApp']);
+}
+
+if (Meteor.isCordova) {
+    angular.element(document).on('deviceready', onReady);
+} else {
+    angular.element(document).ready(onReady);
+}
