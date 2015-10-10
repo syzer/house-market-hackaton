@@ -19,7 +19,19 @@ angular.module("tinder").config(['$urlRouterProvider', '$stateProvider', '$locat
                 url: '/',
                 templateUrl: 'client/features/index/views/index.ng.html',
                 controller: 'features.index.controllers.index'
+            })
+            .state('houses.list', {
+                url: '/houses/list',
+                templateUrl: 'client/features/houses/views/list.ng.html',
+                controller: 'features.houses.controllers.list',
+                resolve: {
+                    'subscribe': [
+                        '$meteor', function($meteor) {
+                            return $meteor.subscribe('houses');
+                        }
+                    ]
+                }
             });
 
-        $urlRouterProvider.otherwise("/");
+        $urlRouterProvider.otherwise("/houses/list");
     }]);
